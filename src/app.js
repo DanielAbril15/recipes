@@ -1,9 +1,21 @@
+//Dependencies
 const express = require("express");
 
+// Files
+const { port } = require("./config");
+
+// Initial Configs
 const app = express();
 
-app.use(express.json);
+app.use(express.json());
 
-app.listen(9000, (req, res) => {
-  res.status(200).json({ message: "OK" });
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "OK!",
+    users: `localhost: ${port}/api/v1/users`,
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Server started at port ${port}`);
 });
