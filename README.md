@@ -14,3 +14,14 @@
 - CRUD de usuarios con autenticacion y manejo de permisos
 - /users/:id DELETE, PUT
 - /users/me
+
+Orden
+
+1. app.js
+2. .env
+3. config.js
+4. database.js
+5. Modelos
+6. Controladores
+7. Servicios
+8. Rutas

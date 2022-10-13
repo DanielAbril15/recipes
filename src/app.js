@@ -1,6 +1,6 @@
 //Dependencies
 const express = require("express");
-
+const userRouter = require("./users/users.router");
 // Files
 const { port } = require("./config");
 
@@ -15,6 +15,8 @@ app.get("/", (req, res) => {
     users: `localhost: ${port}/api/v1/users`,
   });
 });
+
+app.use("/api/v1/users", userRouter);
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);
