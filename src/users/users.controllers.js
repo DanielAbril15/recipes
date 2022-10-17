@@ -35,7 +35,7 @@ const createUser = async (data) => {
 const updateUser = async (id, data) => {
   const result = await Users.update(data, {
     where: {
-      id,
+      id: id,
     },
   });
   return result;
@@ -44,7 +44,16 @@ const updateUser = async (id, data) => {
 const deleteUser = async (id) => {
   const data = await Users.destroy({
     where: {
-      id,
+      id: id,
+    },
+  });
+  return data;
+};
+
+const getUserByEmail = async (email) => {
+  const data = await Users.findOne({
+    where: {
+      email: email,
     },
   });
   return data;
@@ -56,4 +65,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  getUserByEmail,
 };
