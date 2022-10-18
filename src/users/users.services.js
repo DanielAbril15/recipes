@@ -97,6 +97,7 @@ const deleteUser = (req, res) => {
       res.status(400).json({ message: err.message });
     });
 };
+
 const getMyUser = (req, res) => {
   const id = req.user.id;
   usersControllers
@@ -122,11 +123,7 @@ const patchMyUser = (req, res) => {
       country,
     })
     .then((data) => {
-      if (data[0]) {
-        res.status(200).json({ message: `Your User edited succesfully` });
-      } else {
-        res.status(400).json({ message: "Invalid ID" });
-      }
+      res.status(200).json({ message: `Your User was edited succesfully` });
     })
     .catch((err) => {
       res.status(400).json({ message: err.message });
@@ -135,13 +132,9 @@ const patchMyUser = (req, res) => {
 const deleteMyUser = (req, res) => {
   const id = req.user.id;
   usersControllers
-    .deleteUser(id)
+    .updateUser(id, { status: "inactive" })
     .then((data) => {
-      if (data) {
-        res.status(204).json();
-      } else {
-        res.status(404).json({ message: "invalid ID" });
-      }
+      res.status(200).json({ message: `Your User was deleted succesfully` });
     })
     .catch((err) => {
       res.status(400).json({ message: err.message });

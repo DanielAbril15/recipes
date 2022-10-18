@@ -3,6 +3,8 @@ const userRouter = require("./users/users.router");
 const { port } = require("./config");
 const db = require("./utils/database");
 const authRouter = require("./auth/auth.router");
+const initModels = require("./models/initModels");
+
 const app = express();
 
 app.use(express.json());
@@ -18,6 +20,8 @@ db.sync()
   .catch((err) => {
     console.log(err);
   });
+
+initModels();
 
 app.get(
   "/",
