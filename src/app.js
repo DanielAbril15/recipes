@@ -1,17 +1,26 @@
+// Dependencies
 const express = require("express");
-const userRouter = require("./users/users.router");
-const { port } = require("./config");
 const db = require("./utils/database");
+
+//Files
+const { port } = require("./config");
+// Routes
+const userRouter = require("./users/users.router");
 const authRouter = require("./auth/auth.router");
 const initModels = require("./models/initModels");
 
+//Initial Configs
 const app = express();
 
 app.use(express.json());
 
 db.authenticate()
-  .then(() => console.log("DB authenticated"))
-  .catch((err) => console.log(err));
+  .then(() => {
+    console.log("Database Authenticated");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 db.sync()
   .then(() => {
@@ -23,19 +32,12 @@ db.sync()
 
 initModels();
 
-app.get(
-  "/",
-  (req, res, next) => {
-    console.log("Se esta ejecutando un middleware", req.method);
-    next();
-  },
-  (req, res) => {
-    res.status(200).json({
-      message: "OK!",
-      users: `localhost: ${port}/api/v1/users`,
-    });
-  }
-);
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "OK!",
+    users: `localhost:${port}/api/v1/users`,
+  });
+});
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);

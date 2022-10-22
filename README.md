@@ -1,27 +1,26 @@
-#SKELETON
+# SKELETON
 
 - Express
-- PostgresSQL
-- Sequelize ORM
-- Autenticacion con Tokens
+- PostgreSQL
+- Sequelize ORM 
+- Autenticación con Tokens
 - Bcrypt para hashear contraseñas
 - Uso de Json Web Token
 
 ---
 
-- Rutas de Login y creacion de usuarios (register)
+- Rutas de Login y creación de usuario (register)
 - Herramienta para publicar imagenes de perfil
 - CRUD de usuarios con autenticacion y manejo de permisos
 - /users/:id DELETE, PUT
 - /users/me
 
 Orden
-
 1. app.js
 2. .env
 3. config.js
 4. database.js
-5. Modelos
-6. Controladores
-7. Servicios
-8. Rutas
+5. modelos
+6. controladores
+7. servicios
+8. rutas

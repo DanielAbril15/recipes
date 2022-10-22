@@ -1,7 +1,7 @@
 {
   "name": "skeleton",
   "version": "1.0.0",
-  "description": "- Express\r - PostgresSQL\r - Sequelize ORM\r - Autenticacion con Tokens\r - Bcrypt para hashear contraseñas\r - Uso de Json Web Token",
+  "description": "- Express - PostgreSQL - Sequelize ORM  - Autenticación con Tokens - Bcrypt para hashear contraseñas - Uso de Json Web Token",
   "main": "index.js",
   "scripts": {
     "start": "node ./src/app.js",
