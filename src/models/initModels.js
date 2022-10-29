@@ -23,6 +23,21 @@ const initModels = () => {
 
   Ingredients.hasMany(UsersIngredients);
   UsersIngredients.belongsTo(Ingredients);
+
+  Categories.hasMany(Recipes);
+  Recipes.belongsTo(Categories);
+
+  Types.hasMany(Ingredients);
+  Ingredients.belongsTo(Types);
+
+  Recipes.hasMany(RecipesIngredients);
+  RecipesIngredients.belongsTo(Recipes);
+
+  Ingredients.hasMany(RecipesIngredients);
+  RecipesIngredients.belongsTo(Ingredients);
+
+  Recipes.hasMany(Instructions);
+  Instructions.belongsTo(Recipes);
 };
 
 module.exports = initModels;

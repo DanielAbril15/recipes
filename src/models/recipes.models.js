@@ -49,7 +49,7 @@ const Recipes = db.define("recipes", {
     allowNull: false,
     field: "category_id",
     references: {
-      key: id,
+      key: "id",
       model: Categories,
     },
   },
