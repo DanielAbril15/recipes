@@ -1,24 +1,24 @@
 const router = require("express").Router();
-const categoriesServices = require("./categories.services");
+const typeServices = require("./types.services");
 const passport = require("passport");
 const adminValidate = require("../middlewares/role.middleware");
 
 router
   .route("/")
-  .get(categoriesServices.getAllCategories)
+  .get(typeServices.getAllTypes)
   .post(
     passport.authenticate("jwt", { session: false }),
     adminValidate,
-    categoriesServices.createCategory
+    typeServices.createType
   );
 
 router
   .route("/:id")
-  .get(categoriesServices.getCategoryById)
+  .get(typeServices.getTypeById)
   .delete(
     passport.authenticate("jwt", { session: false }),
     adminValidate,
-    categoriesServices.deleteCategory
+    typeServices.deleteType
   );
 
 module.exports = router;
