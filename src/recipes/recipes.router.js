@@ -1,26 +1,26 @@
 const router = require("express").Router();
-const typeServices = require("./types.services");
 const passport = require("passport");
-const adminValidate = require("../middlewares/role.middleware");
-
+const recipeServices = require("./recipes.services");
 require("../middlewares/auth.middleware")(passport);
 
 router
   .route("/")
-  .get(typeServices.getAllTypes)
+  .get(recipeServices.getAllRecipes)
   .post(
     passport.authenticate("jwt", { session: false }),
-    adminValidate,
-    typeServices.createType
+    recipeServices.createRecipe
   );
 
 router
-  .route("/:id")
-  .get(typeServices.getTypeById)
+  .route("/:recipe_id")
+  .get(recipeServices.getRecipeById)
+  .patch(
+    passport.authenticate("jwt", { session: false }),
+    recipeServices.patchRecipe
+  )
   .delete(
     passport.authenticate("jwt", { session: false }),
-    adminValidate,
-    typeServices.deleteType
+    recipeServices.deleteRecipe
   );
 
 module.exports = router;
