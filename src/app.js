@@ -11,6 +11,7 @@ const authRouter = require("./auth/auth.router");
 const categoryRouter = require("./categories/categories.router");
 const typeRouter = require("./types/types.router");
 const recipeRouter = require("./recipes/recipes.router");
+const instructionRouter = require("./instructions/instructions.router");
 
 const initModels = require("./models/initModels");
 
@@ -50,6 +51,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/type", typeRouter);
 app.use("/api/v1/recipes", recipeRouter);
+app.use("/api/v1/instructions", instructionRouter);
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);
