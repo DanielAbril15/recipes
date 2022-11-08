@@ -12,6 +12,7 @@ const categoryRouter = require("./categories/categories.router");
 const typeRouter = require("./types/types.router");
 const recipeRouter = require("./recipes/recipes.router");
 const instructionRouter = require("./instructions/instructions.router");
+const ingredientRouter = require("./ingredients/ingredients.router");
 
 const initModels = require("./models/initModels");
 
@@ -52,6 +53,7 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/type", typeRouter);
 app.use("/api/v1/recipes", recipeRouter);
 app.use("/api/v1/instructions", instructionRouter);
+app.use("/api/vi1/ingredients", ingredientRouter);
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);

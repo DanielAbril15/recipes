@@ -1,4 +1,5 @@
 const Instructions = require("../models/instructions.models");
+const uuid = require("uuid");
 
 const getAllInstructions = async () => {
   const data = await Instructions.findAll();
