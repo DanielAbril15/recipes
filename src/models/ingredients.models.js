@@ -29,7 +29,7 @@ const Ingredients = db.define(
       type: DataTypes.STRING,
       field: "url_img",
       validate: {
-        isUrl: true,
+        // isUrl: true,
       },
     },
   },
