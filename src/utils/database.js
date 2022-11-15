@@ -8,7 +8,7 @@ const db = new Sequelize({
   password: config.db.password, //? Variable de entorno de la contraseña
   database: config.db.dbName, //? Variable de entorno de la base de datos
   dialectOptions:
-    procces.env.NODE_ENV === "production"
+    process.env.NODE_ENV === "production"
       ? {
           ssl: {
             require: true,
