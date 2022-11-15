@@ -1,12 +1,13 @@
 const router = require("express").Router();
 const passport = require("passport");
 const adminValidate = require("../middlewares/role.middleware");
+
 const userServices = require("./users.services");
+const { getMyRecipes } = require("../recipes/recipes.services");
 
 require("../middlewares/auth.middleware")(passport);
 
 // rutas raiz
-
 router.get("/", userServices.getAllUsers);
 
 // Ruta de informacion propia del usuario loggeado
@@ -22,7 +23,12 @@ router
     userServices.deleteMyUser
   );
 
-// /api/v1/users/:id
+router.get(
+  "/me/my_recipes",
+  passport.authenticate("jwt", { session: false }),
+  getMyRecipes
+);
+
 router
   .route("/:id")
   .get(userServices.getUserById)

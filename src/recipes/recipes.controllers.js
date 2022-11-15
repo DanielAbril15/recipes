@@ -117,10 +117,10 @@ const getMyRecipes = async (userId) => {
       userId,
     },
   });
-  const filteredIngredients = userIngredients.map((obj) => obj.Ingredients);
+  const filteredIngredients = userIngredients.map((obj) => obj.ingredientId);
   const recipeIngredients = await RecipesIngredients.findAll({
     where: {
-      IngredientsId: {
+      ingredientId: {
         [Op.or]: filteredIngredients,
       },
     },
